@@ -1,0 +1,135 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container-fluid {
+  height: 95vh;
+  /* Mengatur tinggi container sesuai dengan tinggi viewport */
+  display: flex;
+  /* Mengaktifkan flexbox */
+  flex-direction: column;
+  /* Mengatur tata letak konten dalam satu kolom */
+}
+
+.row {
+  flex: 1;
+  /* Menggunakan seluruh ruang yang tersedia dalam container */
+  display: flex;
+  /* Mengaktifkan flexbox */
+}
+
+.col-md-2 {
+  background-color: #c7000d;
+  flex-basis: 20%;
+  /* Mengatur lebar sidebar menjadi 20% dari container */
+}
+
+.col-md-9 {
+  flex: 1;
+  /* Menggunakan seluruh ruang yang tersedia dalam container */
+}
+
+/* Media query untuk mengatur tata letak pada layar kecil */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    /* Mengatur tata letak konten dalam satu kolom pada layar kecil */
+  }
+
+  .col-md-2 {
+    flex-basis: 100%;
+    /* Sidebar akan mengambil seluruh lebar container pada layar kecil */
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.text-footer {
+  font-size: 10px;
+  color: #fff;
+}
+
+.content {
+  background-color: white;
+  padding: 20px;
+}
+
+.left,
+.right {
+  display: inline-block;
+}
+
+.navbar {
+  background-color: #ffffff;
+  /* Warna latar belakang navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.sidenav {
+  background-color: #c7000d;
+  width: 180px;
+  height: 190px;
+}
+
+.side-button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background-color: #c7000d;
+  color: #ffffff;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.side-button:hover {
+  background-color: #aaaaaa;
+  color: #c7000d;
+  /* Warna latar belakang saat diarahkan kursor */
+}
+
+.btn-group {
+  display: flex;
+  gap: 5px;
+  /* Ubah nilai sesuai dengan jarak yang diinginkan */
+}
+
+.table-button {
+  background: #f7af00;
+  border: none;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.chart-button {
+  background: #c7000d;
+  color: #fff;
+  border: none;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 0px;
+  width: 100%;
+}
