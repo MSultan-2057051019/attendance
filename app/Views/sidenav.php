@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ATS</title>
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/logo.png'); ?>">
     <base href="<?php echo base_url('assets')?>/">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -28,6 +29,24 @@
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <style>
+    /* Gaya untuk popup */
+    .popup-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-image {
+        max-width: 100%;
+        height: auto;
+    }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -74,14 +93,16 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <li class="nav-item">
-                            <a href="<?= base_url('/user') ?>" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>
-                                    Data User
-                                </p>
-                            </a>
-                        </li>
+                        <?php if (session('role') == 'Admin') : ?>
+                            <li class="nav-item">
+                                <a href="<?= base_url('/user') ?>" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                        Data User
+                                    </p>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item">
                             <a href="<?= base_url('/tamu') ?>" class="nav-link">
                                 <i class="nav-icon far fa-user"></i>
@@ -181,6 +202,7 @@
         $('#mydatatable').DataTable();
     });
     </script>
+
 
 </body>
 

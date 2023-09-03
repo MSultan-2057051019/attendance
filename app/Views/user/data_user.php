@@ -17,46 +17,49 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <table class="table table-bordered table-hover" id="mydatatable">
-                    <thead>
-                        <tr>
-                            <th>Foto</th>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>Jabatan</th>
-                            <th>Tgl Mulai Kerja</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach($user as $value) : ?>
-                        <tr>
-                            <td></td>
-                            <td><?php echo $value['nama_user'] ?></td>
-                            <td><?php echo $value['nip_user'] ?></td>
-                            <td><?php echo $value['jabatan_user'] ?></td>
-                            <td><?php echo $value['tgl_kerja'] ?></td>
-                            <td>
-                                <div>
-                                    <a href="<?= base_url('/edit_user/'.$value['id_user']) ?>" type="button"
-                                        class="btn btn-primary btn-sm mt-2 mb-2 button-bg">
-                                        Edit
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="mydatatable">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Nama</th>
+                                <th>NIP</th>
+                                <th>Jabatan</th>
+                                <th>Tgl Mulai Kerja</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach($user as $value) : ?>
+                            <tr>
+                                <td style="max-width: 15px;"><img src="<?= base_url('assets/images/' . $value['pict']); ?>"
+                                        style="width: 106px; height: 159px;">
+                                </td>
+                                <td><?php echo $value['nama_user'] ?></td>
+                                <td><?php echo $value['nip_user'] ?></td>
+                                <td><?php echo $value['jabatan_user'] ?></td>
+                                <td><?php echo $value['tgl_kerja'] ?></td>
+                                <td>
+                                    <div>
+                                        <a href=" <?= base_url('/edit_user/'.$value['id_user']) ?>" type="button"
+                                            class="btn btn-primary btn-sm mt-2 mb-2 button-bg">
+                                            Edit
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
+            <!-- /.card -->
         </div>
-        <!-- /.card -->
+        <!-- /.col -->
     </div>
-    <!-- /.col -->
-</div>
-<!-- /.row -->
+    <!-- /.row -->
 </div>
 
 <!-- Add the necessary library -->

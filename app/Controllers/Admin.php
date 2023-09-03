@@ -8,7 +8,7 @@ use CodeIgniter\Session\SessionInterface;
 class Admin extends BaseController
 {
     protected $admin;
-    protected $session;
+    public $session;
 
     public function __construct()
     {
@@ -31,8 +31,7 @@ class Admin extends BaseController
         $data = $this->admin->getUserLogin($nip);
 
         if ($data) {
-            $pass = $data->password;
-            if ($pass == $password) {
+            if ($password == $data->password) {
                 $id_user = $data->id_user;
                 $nama_user = $this->admin->getUserNama($id_user); // Ambil nama_user dari database
                 $jabatan = $this->admin->getUserJabatan($id_user);
@@ -40,17 +39,16 @@ class Admin extends BaseController
                 $ses_data = [
                     'ses_email' => $data->nip_user,
                     'logged_in' => true,
-                    'nama_user' => $nama_user, // Tambahkan nama_user ke sesi
+                    'nama_user' => $nama_user,
+                    'role' => $jabatan,
                 ];
-
+                
                 if ($jabatan == 'Admin') {
-                    $ses_data['role'] = 'admin';
                     $this->session->set($ses_data);
                     return redirect()->to(base_url('/user'));
-                } elseif ($jabatan == 'Security') {
-                    $ses_data['role'] = 'security';
+                } else if ($jabatan == 'Security') {
                     $this->session->set($ses_data);
-                    return redirect()->to(base_url('/tamu_security'));
+                    return redirect()->to(base_url('/tamu'));
                 } else {
                     return redirect()->to('/')->with('error', 'Jabatan tidak valid');
                 }
@@ -62,9 +60,9 @@ class Admin extends BaseController
         }
     }
 
-
     public function logout()
     {
+        $this->session->remove('logged_in');
         $this->session->destroy();
         return redirect()->to('/');
     }

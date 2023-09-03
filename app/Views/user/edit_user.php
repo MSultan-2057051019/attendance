@@ -16,17 +16,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label>Pas Foto</label> <br>
+                        <img id="imagePreview" src="<?= base_url('assets/images/' . $user['pict']); ?>" alt="Default Foto"
+                            style="max-width: 100%; max-height: 200px;" alt="Default Foto">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>NIP</label>
+                        <input type="number" class="form-control" name="nip_user" id="nip_user"
+                            value="<?= $user['nip_user'] ?>" placeholder=" Nomor Induk Pegawai" readonly>
+                    </div>
+                    <div class="form-group">
                         <label>Nama</label>
                         <input type="text" class="form-control" name="nama_user" id="nama_user"
                             value="<?= $user['nama_user'] ?>" placeholder=" Nama lengkap" autofocus required>
                     </div>
-                    <div class="form-group">
-                        <label>NIP</label>
-                        <input type="number" class="form-control" name="nip_user" id="nip_user"
-                            value="<?= $user['nip_user'] ?>" placeholder=" Nomor Induk Pegawai">
-                    </div>
-                </div>
-                <div class="col-md-6">
                     <div class="form-group">
                         <label>Jabatan</label>
                         <input type="text" class="form-control" name="jabatan_user" id="jabatan_user"

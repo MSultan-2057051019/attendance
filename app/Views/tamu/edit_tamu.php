@@ -16,6 +16,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label>Pas Foto</label> <br>
+                        <img id="imagePreview" src="https://example.com/path-to-default-image.jpg" alt="Default Foto"
+                            style="max-width: 100%; max-height: 200px;" alt="Default Foto">
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" name="user_photo" id="user_photo"
+                            onchange="previewImage()">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Nama</label>
                         <input type="text" class="form-control" name="nama_tamu" id="nama_tamu"
                             value="<?= $tamu['nama_tamu'] ?>" placeholder=" Nama lengkap" autofocus required>

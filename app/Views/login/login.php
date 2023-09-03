@@ -1,10 +1,16 @@
+<?php if (session()->has('error')): ?>
+    <div class="alert alert-danger">
+        <?php echo session('error'); ?>
+    </div>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in</title>
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/logo.png'); ?>">
+    <title>ATS | Login</title>
     <base href="<?php echo base_url('assets')?>/">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -39,11 +45,15 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="passwordInput"
+                            placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
+                            <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn">
+                                Show
+                            </button>
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,7 +70,20 @@
         </div>
     </div>
     <!-- /.login-box -->
+    <script>
+    const passwordInput = document.getElementById("passwordInput");
+    const showPasswordBtn = document.getElementById("showPasswordBtn");
 
+    showPasswordBtn.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordBtn.textContent = "Hide";
+        } else {
+            passwordInput.type = "password";
+            showPasswordBtn.textContent = "Show";
+        }
+    });
+    </script>
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->

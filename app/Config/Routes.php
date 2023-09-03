@@ -39,21 +39,12 @@ $routes->post('/save_user', 'User::save');
 $routes->get('/edit_user/(:num)', 'User::edit/$1');
 $routes->post('/update_user/(:num)', 'User::update/$1');
 
-$routes->get('/cuti', 'Cuti::index');
-
 $routes->get('/tamu', 'Tamu::index');
 $routes->get('/create_tamu', 'Tamu::create');
 $routes->post('/save_tamu', 'Tamu::save');
 $routes->get('/out/(:num)', 'Tamu::out/$1');
 
-$routes->get('/tamu_security', 'Tamu::index_security');
-$routes->get('/create_tamu_security', 'Tamu::create_security');
-$routes->post('/save_tamu_security', 'Tamu::save_security');
-$routes->get('/out_security/(:num)', 'Tamu::out_security/$1');
-
-
 $routes->get('/cuti', 'Cuti::index');
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing
